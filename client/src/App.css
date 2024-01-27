@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form input{
+  width:700px;
+  height:80px;
+  margin:5px;
+  font-size: medium;
+
+
+}
+.form  ::placeholder{
+  font-size:medium;
+  padding-left: 10px;
+}
+.btn{
+  padding: 8px;
+  
+  margin:15px;
+  background-color: aquamarine;
+  font-size: large;
+  border-radius: 15%;
+  
+}
+.btn:hover{
+  background-color:cadetblue ;
+  
+}
