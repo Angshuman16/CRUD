@@ -28,7 +28,18 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 
-app.post("/api/insert",(req,res) =>{
+app.get("/api/get",(req,res)=>{
+    const sqlSelect= "SELECT * FROM movie_reviews;"
+
+    db.query(sqlSelect,(err,result)=>{
+        if(err) throw err;
+       
+        res.send(result);
+    })
+})
+
+
+app.post("/api/insert",(req,res) =>{     //API for posting the content to the backend from the Frontend
     
     const movieName= req.body.movieName;
     const movieReview= req.body.movieReview;
@@ -38,7 +49,7 @@ app.post("/api/insert",(req,res) =>{
     db.query(sqlquery,[movieName,movieReview],(err,result)=>{
         if(err) throw err;
         console.log(result);
-        res.send("Common")
+        res.send("Hemlo world");
     })
 })
 
@@ -55,6 +66,39 @@ app.post("/api/insert",(req,res) =>{
    
 // });
 
+
+app.delete("/api/delete/:movieName",(req,res)=>{
+   const name= req.params.movieName;
+   const sqldelete="DELETE FROM movie_reviews WHERE movieName = ?;" 
+    
+   db.query(sqldelete,name,(err,result)=>{
+    if(err) throw err;
+    console.log(result);
+    
+})
+   
+})
+
+
+app.put("/api/update/",(req,res)=>{
+    const name= req.body.movieName;
+    const review= req.body.movieReview;
+    const sqlupdate="UPDATE movie_reviews SET movieReview=? WHERE movieName=?;" 
+     
+    db.query(sqlupdate,[review,name],(err,result)=>{
+     if(err) throw err;
+     console.log(result);
+     
+ })
+    
+ })
+
+
+
+
+
 app.listen(3001, ()=>{
     console.log("Running on port 3001");
+
+
 });

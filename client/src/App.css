@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .form{
@@ -33,4 +34,26 @@
 .btn:hover{
   background-color:cadetblue ;
   
+}
+.card{
+  width:500px;
+  height:150px;
+  border:2px solid black;
+  border-radius:15px;
+  margin:30px;
+  margin-left: 30rem;
+  background-color: antiquewhite;
+  
+}
+#updateinput{
+  width:100px;
+  height: 20px;
+  margin-bottom: 10px;
+
+}
+
+#btndelete{
+  
+  padding: 2px;
+  margin: 5px;
 }
